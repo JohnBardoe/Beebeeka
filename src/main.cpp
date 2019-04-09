@@ -13,7 +13,7 @@ int map[4][8];
 int adjList[4][8][4];
 
 void setup() {
-
+	delay(1);
 }
 
 void loop() {
