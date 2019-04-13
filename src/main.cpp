@@ -14,9 +14,10 @@ struct Node{
 };
 
 
-int map[4][8];
 
 int adjList[4][8][4];
+
+//adjList[0][0] = {0,0,1,1}
 
 void dfs(){
 
