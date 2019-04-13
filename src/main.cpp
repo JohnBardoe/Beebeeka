@@ -19,6 +19,10 @@ int adjList[4][8][4];
 
 //adjList[0][0] = {0,0,1,1} 
 // {up, right, down, left}
+// 1 - up
+// 2 - right 
+// 3 - down
+// 4 - left
 
 void dfs(){
 
