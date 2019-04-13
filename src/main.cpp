@@ -17,7 +17,8 @@ struct Node{
 
 int adjList[4][8][4];
 
-//adjList[0][0] = {0,0,1,1}
+//adjList[0][0] = {0,0,1,1} 
+// {up, right, down, left}
 
 void dfs(){
 
