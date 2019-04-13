@@ -10,7 +10,7 @@ struct Pair{
 
 struct Node{
   bool right = false, left = false, forward = false, back = false;
-
+  //egor loh
 };
 
 
