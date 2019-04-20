@@ -67,6 +67,7 @@ public:
     int map_s [4][8][4];
 
 	Queue q;
+	Vector <int> answer;
 	Vector <int> ans;
 	int length [4][8] = {{0},{0}};
 
@@ -165,6 +166,40 @@ public:
 				}
 			}
 			q.pop();
+		}
+		int x = x_f-1, y = y_f-1;
+		while(x != x_st-1 || y != y_st-1)
+		{
+			if (length[x-1][y]==length[x][y]-1)
+			{
+				ans.push_back(3);
+				x--;
+				continue;
+			}
+			if (length[x+1][y]==length[x][y]-1)
+			{
+				ans.push_back(1);
+				x++;
+				continue;
+			}
+
+			if (length[x][y-1]==length[x][y]-1)
+			{
+				ans.push_back(2);
+				y--;
+				continue;
+			}
+			if (length[x][y+1]==length[x][y]-1)
+			{
+				ans.push_back(4);
+				y++;
+				continue;
+			}
+		}
+
+		for (int i = ans.size()-1; i >=0; i --)
+		{
+			answer.push_back(ans[i]);
 		}
 	}
 
