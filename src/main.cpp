@@ -33,7 +33,11 @@ void scan(int x, int y){
   for(int i = 0; i < 4; i++){
     Pair coord = Pair(x + (int)(i % 2 != 0), y + (int)(i % 2 == 0));
     if(adjList[x][y][i] == 1)
-      if(!visited[coord.x][coord.y])
+      if(!visited[coord.x][coord.y]){
+        turn(i*90);
+        driveCells(1);
+      }
+        
       
   }
 
