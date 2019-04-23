@@ -1,12 +1,16 @@
 #include <Arduino.h>
+#include "Pair.h"
 
-void turnAng(int ang){}
+#define startX 3
+#define startY 3
 
-void setSpeed(int speed){}
+void driveCells(int cells){
 
-struct Pair{
-  int x, y;
-};
+}
+
+void turn(int angle){
+  
+}
 
 struct Node{
   bool right = false, left = false, forward = false, back = false;
@@ -14,22 +18,32 @@ struct Node{
 };
 
 
-
-int adjList[4][8][4];
-
+int* adjList[4][8];
+bool visited[4][8];
 //adjList[0][0] = {0,0,1,1} 
 // {up, right, down, left}
-// 1 - up
-// 2 - right 
-// 3 - down
-// 4 - left
 
-void dfs(){
+int* spin(){
+  
+}
+
+void scan(int x, int y){
+  adjList[x][y] = spin();
+  visited[x][y] = true;
+  for(int i = 0; i < 4; i++){
+    Pair coord = Pair(x + (int)(i % 2 != 0), y + (int)(i % 2 == 0));
+    if(adjList[x][y][i] == 1)
+      if(!visited[coord.x][coord.y])
+      
+  }
 
 }
 
 void setup() {
 	delay(1);
+  for(int i = 0; i < 8; i++)
+    for(int j = 0; j < 4; j++)
+      visited[j][i] = false;
 }
 
 void loop() {

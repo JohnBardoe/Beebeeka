@@ -1,26 +1,10 @@
 #include <vector.h>
-
+#include "Pair.h"
 #define push_back PushBack
 #define size Size
 #define erase Erase
 
-class Pair{
-public:
-	int x, y;
-	Pair(int x1, int y1)
-	{
-		x = x1;
-		y = y1;
-	}
-	int first()
-	{
-		return x;
-	}
-	int second()
-	{
-		return y;
-	}
-};
+
 
 class Queue{
 public:
