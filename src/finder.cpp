@@ -40,7 +40,7 @@ public:
                 }
                 if (count == 3 || count == 4)
                 {
-                    int x_s1, y_s1, x_f1, y_f2;
+                    int x_s1, y_s1, x_f1, y_f1;
                     x_s1=max(0, j-1);
                     y_s1=max(0, i-1);
                     x_f1=min(7, j+1);
