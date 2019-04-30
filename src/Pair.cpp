@@ -14,3 +14,5 @@ int Pair::second()
 {
     return y;
 }
+
+Pair::Pair(){}

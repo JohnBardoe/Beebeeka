@@ -12,6 +12,10 @@ void turn(int angle){
   
 }
 
+int* getSensorData(){
+
+}
+
 struct Node{
   bool right = false, left = false, forward = false, back = false;
   
@@ -24,6 +28,18 @@ bool visited[4][8];
 // {up, right, down, left}
 
 int* spin(){
+  int* ans = new int[4];
+  for(int j = 0; j < 4; j++)
+    for(int i = 0; i < 90; i++){
+      turn(1);
+      int* d = getSensorData();
+      if(d[0] || d[1]){
+        ans[j] = 1;
+        turn(90-i);
+        break;
+      }
+      delay(2);
+    }
   
 }
 
@@ -31,16 +47,8 @@ void scan(int x, int y){
   adjList[x][y] = spin();
   visited[x][y] = true;
   for(int i = 0; i < 4; i++){
-    Pair coord = Pair(x + (int)(i % 2 != 0), y + (int)(i % 2 == 0));
-    if(adjList[x][y][i] == 1)
-      if(!visited[coord.x][coord.y]){
-        turn(i*90);
-        driveCells(1);
-      }
-        
-      
+    
   }
-
 }
 
 void setup() {

@@ -3,18 +3,10 @@
 class Pair{
 public:
 	int x, y;
-	Pair(int x1, int y1)
-	{
-		x = x1;
-		y = y1;
-	}
-	int first()
-	{
-		return x;
-	}
-	int second()
-	{
-		return y;
-	}
+	Pair(int x1, int y1);
+	Pair();
+	int first();
+	int second();
+
 };
 #endif
