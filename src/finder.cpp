@@ -18,10 +18,10 @@ public:
     {
         int x_s, y_s;
         x_s = max(xcube-3, 0);
-        y_s = max(ycude-3, 0);
+        y_s = max(ycube-3, 0);
         int x_f, y_f;
         x_f = min(xcube+3, 7);
-        y_f = min(ycude+3, 3);
+        y_f = min(ycube+3, 3);
         for (int i = y_s; i <= y_f; i++)
         {
             for (int j = x_s; j <= x_f; j++)
