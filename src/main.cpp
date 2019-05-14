@@ -45,7 +45,9 @@ void turnRight(int angle){
 }
 
 int* getSensorData(){
-
+  int data[] = {getLeftColor(), getRightColor()};
+  return data;
+  
 }
 
 struct Node{
@@ -101,12 +103,40 @@ int* spin(){
   
 }
 
+int* convertScanData(int x, int y, int i){
+  int* result = new int[2];
+  result[0] = x;
+  result[1] = y;
+  switch(i){
+    case 0:
+      result[1]++;
+    break;
+    case 1:
+      result[0]++;
+    break;
+    case 2:
+    result[1]--;
+    break;
+    case 3:
+    result[0]--;
+    break;
+  };
+  return result;
+}
+
+///dfs
 void scan(int x, int y){
   adjList[x][y] = spin();
-  visited[x][y] = true;
-  for(int i = 0; i < 4; i++){
-    
+  if(!visited[x][y]){
+    visited[x][y] = true;
+    for(int i = 0; i < 4; i++){
+      if(adjList[x][y][i] == 1){
+        int* gt = convertScanData(x, y, i);
+        scan(gt[0], gt[1]);
+      }
+    }
   }
+  
 }
 
 void setup() {
