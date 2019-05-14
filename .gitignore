@@ -2,4 +2,6 @@
 .pioenvs
 .piolibdeps
 .vscode/ipch
-.BROWSE*
+.vscode/.BROWSE.C_CPP.DB
+.vscode/.BROWSE.C_CPP.DB-shm
+.vscode/.BROWSE.C_CPP.DB-wal
