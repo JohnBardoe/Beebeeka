@@ -44,7 +44,7 @@ public:
                     x_s1=max(0, j-1);
                     y_s1=max(0, i-1);
                     x_f1=min(7, j+1);
-                    y_s1=min(0, i+1);
+                    y_f1=min(7, i+1);
                     for (int k = y_s1; k <= y_f1; k++)
                     {
                         for (int p = x_s1; p <= x_f1; p++)
