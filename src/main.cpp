@@ -4,45 +4,20 @@
 #define startX 3
 #define startY 3
 
-#pragma region PORTS
 #define ML 5
 #define DIRECTIONL 2
 #define MR 10
-#define DIRECTIONR 7
+#define DIRECTIONR 8
+#define LEFT_COL A0
+#define RIGHT_COL A1
 
-#define LEFT_COL 0
-#define RIGHT_COL 1
-
-#pragma endregion PORTS
-
-#pragma region constansts
-#define TOP_SPEED 150
-#define LOW_SPEED 120
+#define TOP_SPEED 5
+#define LOW_SPEED 0
 #define DEG90TURN 700
-#pragma endregion
+#define sensitivity 600
 
-#define getLeftColor() digitalRead(LEFT_COL)
-#define getRightColor() digitalRead(RIGHT_COL)
-
-void driveCells(int cells){
-
-}
-
-void turnLeft(int angle){
-      rightMotor(LOW_SPEED);
-      leftMotor(-LOW_SPEED);
-      delay(DEG90TURN * (angle/90));
-      rightMotor(LOW_SPEED);
-      leftMotor(LOW_SPEED);
-}
-
-void turnRight(int angle){
-      rightMotor(-LOW_SPEED);
-      leftMotor(LOW_SPEED);
-      delay(DEG90TURN * (angle/90));
-      rightMotor(LOW_SPEED);
-      leftMotor(LOW_SPEED);
-}
+#define getLeftColor() analogRead(LEFT_COL) > sensitivity
+#define getRightColor() analogRead(RIGHT_COL) > sensitivity
 
 int* getSensorData(){
   int data[] = {getLeftColor(), getRightColor()};
@@ -66,8 +41,26 @@ void rightMotor(int _speed){
   digitalWrite(DIRECTIONR, _speed < 0);
 }
 
+void turnLeft(int angle){
+      rightMotor(LOW_SPEED);
+      leftMotor(-LOW_SPEED);
+      delay(DEG90TURN * (angle/90));
+      rightMotor(LOW_SPEED);
+      leftMotor(LOW_SPEED);
+}
+
+void turnRight(int angle){
+      rightMotor(-LOW_SPEED);
+      leftMotor(LOW_SPEED);
+      delay(DEG90TURN * (angle/90));
+      rightMotor(LOW_SPEED);
+      leftMotor(LOW_SPEED);
+}
+
 void lineFollow(){
   bool left = getLeftColor(), right = getRightColor();
+  Serial.print(left);
+  Serial.println(right);
       if(left && !right){
         leftMotor(TOP_SPEED);
         rightMotor(LOW_SPEED);
@@ -140,7 +133,7 @@ void scan(int x, int y){
 }
 
 void setup() {
-	delay(1);
+	delay(10);
    pinMode(ML, OUTPUT);
    pinMode(DIRECTIONL, OUTPUT);
    pinMode(MR, OUTPUT);
@@ -148,13 +141,9 @@ void setup() {
    
    pinMode(LEFT_COL, INPUT);
    pinMode(RIGHT_COL, INPUT);
-  for(int i = 0; i < 8; i++)
-    for(int j = 0; j < 4; j++)
-      visited[j][i] = false;
-  
-  
+   
 }
 
 void loop() {
-
+   lineFollow();
 }
